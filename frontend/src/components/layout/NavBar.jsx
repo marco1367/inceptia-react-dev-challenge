@@ -1,22 +1,35 @@
 import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 //images:
 import Logo from './logo.jpg'
+//components:
+import LogOutBttn from '../LogOutBttn';
+
 
 export default function NavBar() {
+
+    const userStore = useSelector(store => store.user);
 
     return (
         <Container>
             <div className='logo-container' >
                 <NavLink to={'/'} >
-                    <img src={Logo} alt="logo-inceptia"/>
+                    <img src={Logo} alt="logo-inceptia" />
                 </NavLink>
             </div>
             <div className='bttns-container' >
-                <div className='bttn-container' >
-                    <NavLink to={'login'} className={({ isActive }) => isActive ? "is-active" : ""} >LogIn</NavLink>
-                </div>
+                {
+                    Object.keys(userStore).length > 0 ?
+                        <div className='bttn-container' >
+                            <LogOutBttn />
+                        </div>
+                        :
+                        <div className='bttn-container' >
+                            <NavLink to={'login'} className={({ isActive }) => isActive ? "is-active" : ""} >LogIn</NavLink>
+                        </div>
+                }
                 <div className='bttn-container' >
                     <NavLink to={'dashboard'} className={({ isActive }) => isActive ? "is-active" : ""} >Dashboard</NavLink>
                 </div>

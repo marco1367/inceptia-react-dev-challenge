@@ -4,13 +4,15 @@ import { Outlet } from 'react-router-dom';
 //components:
 import NavBar from './NavBar';
 
+
 export default function Layout() {
+
   return (
     <Container>
-        <NavBar />
-        <Content>
-            <Outlet />
-        </Content>
+      <NavBar />
+      <Content>
+        <Outlet />
+      </Content>
     </Container>
   )
 }
@@ -34,3 +36,4 @@ const Content = styled.div`
     padding-top: 10px;
     padding-bottom: 10px;
 `;
+
