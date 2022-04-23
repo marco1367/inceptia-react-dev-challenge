@@ -9,12 +9,6 @@ import Header from './container-header-content/header/Header';
 
 export default function Dashboard() {
 
-  // const nowDate = dayjs().format('YYYY-MM-DD');
-  // console.log(nowDate);//-----
-  // const lastWeek = dayjs(nowDate).subtract(1, 'week').format('YYYY-MM-DD');
-  // console.log(lastWeek);//-----
-
-
   return (
     <Container>
         <Sidebar />
@@ -29,7 +23,6 @@ export default function Dashboard() {
 const Container = styled.div`
     width: 100%;
     height: calc(100vh - 100px);
-    background-color: yellow;
 
     display: flex;
     justify-content: start;

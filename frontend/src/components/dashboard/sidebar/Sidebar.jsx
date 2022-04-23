@@ -21,6 +21,9 @@ export default function Sidebar() {
 
   return (
     <Container>
+      <div className='cliente-title' >
+        <p>CLIENTE</p>
+      </div>
       {
         clientsStore &&
         clientsStore.map((client) => {
@@ -36,17 +39,26 @@ const Container = styled.div`
   height: 100%;
   padding: 10px;
   border: 1px solid black;
+  background-color: white;
 
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction: column;
 
+  .cliente-title{
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding: 5px;
+    width: 100%;
+  }
+
   .clients-list-container{
     width: 100%;
     height: auto;
     padding: 10px;
     border: 1px solid black;
+    background-color: blue;
 
     display: flex;
     justify-content: center;
