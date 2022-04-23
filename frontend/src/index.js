@@ -10,6 +10,11 @@ import {Provider} from 'react-redux';
 import store from "./redux/store";
 //components:
 import App from './App';
+//dayjs and local dates started:
+import dayjs from 'dayjs';
+import 'dayjs/locale/es';
+dayjs.locale('es');
+
 
 
 ReactDOM.render(

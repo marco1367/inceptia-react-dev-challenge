@@ -1,13 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Outlet } from 'react-router-dom';
 //components:
 import Sidebar from './sidebar/Sidebar';
+import ContainerHedCon from './container-header-content/ContainerHedCon';
+import Header from './container-header-content/header/Header';
 
 
 export default function Dashboard() {
+
+  // const nowDate = dayjs().format('YYYY-MM-DD');
+  // console.log(nowDate);//-----
+  // const lastWeek = dayjs(nowDate).subtract(1, 'week').format('YYYY-MM-DD');
+  // console.log(lastWeek);//-----
+
+
   return (
     <Container>
-        <Sidebar></Sidebar>
+        <Sidebar />
+        <ContainerHedCon>
+          <Header />
+          <Outlet />
+        </ContainerHedCon>
     </Container>
   )
 }
@@ -16,4 +30,9 @@ const Container = styled.div`
     width: 100%;
     height: calc(100vh - 100px);
     background-color: yellow;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
 `;

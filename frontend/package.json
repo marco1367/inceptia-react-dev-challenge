@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "0.18.0",
     "babel-polyfill": "^6.26.0",
+    "dayjs": "^1.11.1",
     "express": "4.16.4",
     "node-sass": "^4.11.0",
     "react": "^16.14.0",

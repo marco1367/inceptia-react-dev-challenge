@@ -22,17 +22,19 @@ export default function NavBar() {
             <div className='bttns-container' >
                 {
                     Object.keys(userStore).length > 0 ?
-                        <div className='bttn-container' >
-                            <LogOutBttn />
-                        </div>
+                        <>
+                            <div className='bttn-container' >
+                                <LogOutBttn />
+                            </div>
+                            <div className='bttn-container' >
+                                <NavLink to={'dashboard'} className={({ isActive }) => isActive ? "is-active" : ""} >Dashboard</NavLink>
+                            </div>
+                        </>
                         :
                         <div className='bttn-container' >
                             <NavLink to={'login'} className={({ isActive }) => isActive ? "is-active" : ""} >LogIn</NavLink>
                         </div>
                 }
-                <div className='bttn-container' >
-                    <NavLink to={'dashboard'} className={({ isActive }) => isActive ? "is-active" : ""} >Dashboard</NavLink>
-                </div>
             </div>
         </Container>
     )

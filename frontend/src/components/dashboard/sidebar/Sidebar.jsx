@@ -1,9 +1,6 @@
-import React from 'react'
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components'
-//actions:
 import { GetClients } from '../../../redux/clients/clientsAction';
 //components:
 import ClientBttn from '../client-bttn/ClientBttn';
@@ -14,18 +11,20 @@ export default function Sidebar() {
   const dispatch = useDispatch();
   const userStore = useSelector(store => store.user);
   const clientsStore = useSelector(store => store.clients);
-  console.log(clientsStore);//-----
+
 
   useEffect(() => {
+    console.log(userStore);//-----
     dispatch(GetClients(userStore.token));
-  }, []);
+  }, [userStore]);
+
 
   return (
     <Container>
       {
         clientsStore &&
         clientsStore.map((client) => {
-          return <ClientBttn id={client.id} name={client.name} />
+          return <ClientBttn key={client.id} id={client.id} name={client.name} />
         })
       }
     </Container>
@@ -33,7 +32,7 @@ export default function Sidebar() {
 }
 
 const Container = styled.div`
-  width: 300px;
+  width: 200px;
   height: 100%;
   padding: 10px;
   border: 1px solid black;
