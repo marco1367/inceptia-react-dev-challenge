@@ -1,0 +1,15 @@
+version: "2"
+
+services:
+  app:
+    restart: always
+    build: ./frontend
+    container_name: node-app
+    command: ["npm", "start"]
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    expose:
+      - "3000"
+    stdin_open: true
+    tty: true
