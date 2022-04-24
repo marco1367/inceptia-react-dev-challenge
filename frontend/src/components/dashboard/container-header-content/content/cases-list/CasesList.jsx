@@ -1,6 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 //components:
+//react-icons:
+import { AiOutlineCalendar } from "react-icons/ai";
+import { CgSandClock } from "react-icons/cg";
+
+
+
 
 export default function CasesList({ List }) {
 
@@ -25,13 +31,19 @@ export default function CasesList({ List }) {
             List.list.results.map((caso) => {
               return (
                 <div className='titles' key={caso.case_uuid} >
-                  <div className='title doble' > <p> {caso.last_updated} </p> </div>
+                  <div className='title doble' > 
+                    <AiOutlineCalendar style={{ fontSize: '25px', marginRight: '10px' }} />
+                    <p className='doble color-red' > {caso.last_updated} </p> 
+                  </div>
                   <div className='title' > <p> {caso.case_uuid} </p> </div>
                   <div className='title doble' > <p> {caso.phone} </p> </div>
-                  <div className='title' > <p> {caso.extra_metadata.dni} </p> </div>
-                  <div className='title' > <p> {caso.extra_metadata.grupo} </p> </div>
-                  <div className='title' > <p> {caso.extra_metadata.orden} </p> </div>
-                  <div className='title' > <p> {caso.case_duration} </p> </div>
+                  <div className='title' > <p className='color-red' > {caso.extra_metadata.dni} </p> </div>
+                  <div className='title' > <p className='color-red' > {caso.extra_metadata.grupo} </p> </div>
+                  <div className='title' > <p className='color-red' > {caso.extra_metadata.orden} </p> </div>
+                  <div className='title' > 
+                    <CgSandClock style={{ fontSize: '25px', marginRight: '10px' }} />
+                    <p className='color-red' > {caso.case_duration} </p> 
+                  </div>
                   <div className='title doble' > <p> {caso.case_result.name} </p> </div>
                 </div>
               )
@@ -48,14 +60,13 @@ export default function CasesList({ List }) {
 
 
 const Container = styled.div`
-  background-color: blue;
   width: 100%;
   height: 100%;
   
   .titles{
     width: 100%;
     height: auto;
-    background-color: grey;
+    background-color: white;
     
     display: flex;
     justify-content: space-between;
@@ -64,16 +75,20 @@ const Container = styled.div`
     
     .title{
       width: calc(100% / 11);
-      height: 30px;
+      height: 32px;
       padding: 2.5px;
-      border: 1px solid black;
+      border: 1px solid #ededed;
       
       display: flex;
       justify-content: start;
-      align-items: start;
+      align-items: center;
     }
     .doble{
       width: calc((100% / 11)*2);
+    }
+    .color-red{
+      color: #FE4747;
+      width: 100%
     }
   }
   

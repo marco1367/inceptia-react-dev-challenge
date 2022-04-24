@@ -38,5 +38,4 @@ export default function Content() {
 const Container = styled.div`
     width: 100%;
     height: calc(100% - 80px);
-    border: 1px solid black;
 `;

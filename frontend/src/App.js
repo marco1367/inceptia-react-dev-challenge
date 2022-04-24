@@ -8,6 +8,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Content from './components/dashboard/container-header-content/content/Content';
 import Home from './components/Home';
 import RequireAuth from './components/authRoutes/RequireAuth';
+import PreviewDash from './components/dashboard/preview-dashboard/PreviewDash';
 
 
 
@@ -26,7 +27,7 @@ export default function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<h1>preview</h1>} />
+          <Route index element={<PreviewDash />} />
           <Route path={':id'} element={<Content />} />
         </Route>
       </Route>

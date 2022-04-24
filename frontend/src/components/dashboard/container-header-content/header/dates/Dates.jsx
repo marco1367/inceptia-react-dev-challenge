@@ -22,30 +22,52 @@ export default function Dates() {
 
     return (
         <Container>
-            <input
-                type='date'
-                name='date_Start'
-                value={casesDatesStore.date_Start}
-                max={dateNow}
-                onChange={(e) => handleChange(e)}
-            />
+            <div className='input-container' >
+                <p>Desde</p>
+                <input
+                    type='date'
+                    name='date_Start'
+                    value={casesDatesStore.date_Start}
+                    max={dateNow}
+                    onChange={(e) => handleChange(e)}
+                />
+            </div>
 
-            <input
-                type='date'
-                name='date_End'
-                value={casesDatesStore.date_End}
-                max={dateNow}
-                onChange={(e) => handleChange(e)}
-            />
+            <div className='input-container' >
+                <p>Hasta</p>
+                <input
+                    type='date'
+                    name='date_End'
+                    value={casesDatesStore.date_End}
+                    max={dateNow}
+                    onChange={(e) => handleChange(e)}
+                />
+            </div>
         </Container>
     )
 }
 
 
-const Container = styled.div`
-    border: 1px solid black;
+const Container = styled.div`    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 
-    input{
-        margin: 5px;
+    .input-container{
+        border: 1px solid #007fff;
+
+        input{
+            width: 250px;
+            border: none;
+            padding: 7px;
+        }
+        p{
+            font-size: 12px;
+            margin: 0;
+            padding: 0;
+            padding-left: 8px;
+            color: #696969;
+        }
     }
 `;
