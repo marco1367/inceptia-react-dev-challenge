@@ -22,8 +22,8 @@ export default function Header() {
 const Container = styled.div`
   width: 100%;
   height: 80px;
-  border: 1px solid black;
   padding: 10px 20px;
+  border-bottom: 1px solid grey;
 
   display: flex;
   justify-content: space-between;

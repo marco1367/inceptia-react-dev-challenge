@@ -24,12 +24,14 @@ export default function Sidebar() {
       <div className='cliente-title' >
         <p>CLIENTE</p>
       </div>
-      {
-        clientsStore &&
-        clientsStore.map((client) => {
-          return <ClientBttn key={client.id} id={client.id} name={client.name} />
-        })
-      }
+      <div className='clients-list-container' >
+        {
+          clientsStore &&
+          clientsStore.map((client) => {
+            return <ClientBttn key={client.id} id={client.id} name={client.name} />
+          })
+        }
+      </div>
     </Container>
   )
 }
@@ -38,7 +40,7 @@ const Container = styled.div`
   width: 200px;
   height: 100%;
   padding: 10px;
-  border: 1px solid black;
+  padding-right: 0;
   background-color: white;
 
   display: flex;
@@ -47,22 +49,24 @@ const Container = styled.div`
   flex-direction: column;
 
   .cliente-title{
-    border: 1px solid black;
     margin-bottom: 20px;
     padding: 5px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    margin: 0;
     width: 100%;
+    background-color: #ededed;
   }
 
   .clients-list-container{
     width: 100%;
-    height: auto;
-    padding: 10px;
-    border: 1px solid black;
-    background-color: blue;
+    height: 100%;
+    background-color: #ededed;
+    overflow-y: scroll;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     flex-direction: column;
   }
 `;

@@ -13,7 +13,7 @@ export default function ContainerHedCon({children}) {
 
 
 const Container = styled.div`
-    background-color: green;
+    background-color: white;
     width: calc(100% - 200px);
     height: 100%;
 `;
