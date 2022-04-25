@@ -49,14 +49,17 @@ export default function CasesList({ List }) {
                 )
               })
               :
-              <p>No hay casos registrados para ese rango de fechas</p>
+              <div className='no-date-match' >
+                <p>No hay casos registrados para ese rango de fechas</p>
+              </div>
           )
           :
           <div className='loading-container' >
             <AiOutlineReload
               style={{
-                fontSize: '40px'
+                fontSize: '60px'
               }}
+              className='loading-icon'
             />
           </div>
       }
@@ -98,15 +101,43 @@ const Container = styled.div`
     }
   }
 
+  .no-date-match{
+    width: 100%;
+    height: calc(100% - 80px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p{
+      font-size: 20px;
+      color: #999;
+      font-weight: inherit;
+      line-height: 1.45;
+    }
+  }
+
   .loading-container{
     width: 100%;
-    height: calc(100% - 80px);;
+    height: calc(100% - 80px);
     background-color: white ;
     
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+  }
+  .loading-icon{
+    animation-name: girar;
+    animation-duration: 2s;
+  }
+  @keyframes girar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
   }
   
   #header{
@@ -116,5 +147,5 @@ const Container = styled.div`
       border: none;
     }
   }
+  
 `;
-
